@@ -30,3 +30,18 @@
 
 --dump data in new table
 --select * into tblProduct2 from tblProduct
+
+--nested subquery (w3) category wise total prices that are greater than category wise total average
+--select * from (
+--            select CategoryID,sum(Price) as total_price
+--                from Products
+--                group by CategoryID
+--            )
+--       where total_price > (
+--       select avg(total_price) as average_price
+--              from (
+--                  select CategoryID,sum(Price) as total_price
+--                  from Products
+--                  group by CategoryID
+--                )
+--       )
